@@ -33,64 +33,59 @@
             z-index: 1000;
         }
 
-        /* --- 3D ANIMATED FRAME WITH PHOTO --- */
-        .profile-container {
-            perspective: 1000px;
-            width: 200px;
-            height: 200px;
-            margin: 0 auto 30px;
+        /* --- TECH 3D MODEL SECTION --- */
+        .tech-model-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tech-ring {
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border: 1.5px solid rgba(0, 234, 255, 0.5);
+            border-radius: 40px;
+            animation: rotateTech 8s linear infinite;
+        }
+
+        .ring-inner { width: 190px; height: 190px; border-color: #6a5af9; animation-direction: reverse; animation-duration: 6s; }
+        .ring-outer { width: 250px; height: 250px; border-color: rgba(0, 234, 255, 0.2); animation-duration: 12s; }
+
+        .code-box {
+            width: 140px;
+            height: 140px;
+            background: #080808;
+            border: 3px solid #00eaff;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            box-shadow: 0 0 30px rgba(0, 234, 255, 0.4);
             position: relative;
         }
 
-        .profile-3d-model {
-            width: 100%;
-            height: 100%;
-            position: relative;
-            transform-style: preserve-3d;
-            animation: floatModel 4s ease-in-out infinite;
+        .code-icon {
+            font-size: 50px;
+            font-weight: bold;
+            color: #00eaff;
+            font-family: monospace;
+            text-shadow: 0 0 15px #00eaff;
         }
 
-        /* ONLY CHANGE: circle → square */
-        .user-photo {
-            width: 160px;
-            height: 160px;
-            border-radius: 12px;
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            object-fit: cover;
-            border: 2px solid #00eaff;
-            z-index: 2;
-            box-shadow: 0 0 20px rgba(0, 234, 255, 0.5);
-        }
-
-        /* ONLY CHANGE: circle → square */
-        .sphere-layer {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            border: 1px solid rgba(0, 234, 255, 0.3);
-            background: radial-gradient(circle, rgba(0, 234, 255, 0.05) 0%, transparent 70%);
-            animation: rotateLayer 10s linear infinite;
-        }
-
-        .layer-1 { transform: rotateY(0deg); }
-        .layer-2 { transform: rotateY(45deg); animation-duration: 8s; }
-        .layer-3 { transform: rotateX(90deg); animation-duration: 12s; }
-
-        @keyframes rotateLayer {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes floatModel {
-            0%, 100% { transform: translateY(0) rotateX(5deg); }
-            50% { transform: translateY(-15px) rotateX(-5deg); }
+        @keyframes rotateTech {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.05); }
+            100% { transform: rotate(360deg) scale(1); }
         }
 
         /* --- UI ELEMENTS --- */
-        .hero { text-align: center; padding: 60px 20px; }
+        .hero { text-align: center; padding: 20px 20px; }
         .hero h1 span { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 3.5rem; }
         .hero p { color: var(--text-dim); font-size: 1.1rem; max-width: 800px; margin: 20px auto; line-height: 1.6; }
         
@@ -153,8 +148,6 @@
 </head>
 <body>
 
-    <!-- ✅ REST CODE EXACT SAME (no change) -->
-
     <nav>
         <div style="font-weight:bold;">TUSHAR JAVIR</div>
         <div>
@@ -166,12 +159,12 @@
     </nav>
 
     <section id="home" class="hero">
-        <div class="profile-container">
-            <div class="profile-3d-model">
-                <img src="1000016946.jpg" class="user-photo" alt="Tushar Javir">
-                <div class="sphere-layer layer-1"></div>
-                <div class="sphere-layer layer-2"></div>
-                <div class="sphere-layer layer-3"></div>
+        <div class="tech-model-container">
+            <div class="tech-ring ring-outer"></div>
+            <div class="tech-ring"></div>
+            <div class="tech-ring ring-inner"></div>
+            <div class="code-box">
+                <div class="code-icon">&lt;&gt;</div>
             </div>
         </div>
 
@@ -222,6 +215,16 @@
             <h3 style="color: #00eaff;">3) Quantium - Data Analytics</h3>
             <p>Job Simulation | Click to view Certificate</p>
         </a>
+
+        <a href="https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd09971169876" target="_blank" class="card">
+            <h3 style="color: #00eaff;">4) Ai Tool Workshop</h3>
+            <p>Ai Workshop | Click to view Certificate</p>
+        </a>
+
+        <a href="https://certx.in/certificate/0270772f-3809-4400-b29b-1e1c61cd0997966943" target="_blank" class="card">
+            <h3 style="color: #00eaff;">5) Ai Workshop</h3>
+            <p>Ai Workshop | Click to view Certificate</p>
+        </a>
     </section>
 
     <section id="projects">
@@ -241,6 +244,11 @@
         <a href="https://github.com/javirtushar183-byte/Taxi-Fare-Dashboard" target="_blank" class="card">
             <h3>3) Taxi Fare Analytics Dashboard</h3>
             <p>Visualizing fare trends and pricing optimization.</p>
+        </a>
+
+        <a href="https://github.com/javirtushar183-byte/Bank-Churn-Analysis-Dashboard" target="_blank" class="card">
+            <h3>4) Bank Churn Analysis Dashboard</h3>
+            <p>Analyzing customer retention and churn patterns for banking sector.</p>
         </a>
     </section>
 
